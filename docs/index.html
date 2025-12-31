@@ -42,6 +42,11 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://1mb.dev/">
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
   {
@@ -73,7 +78,9 @@
 <body>
   <main role="main" itemscope itemtype="https://schema.org/Organization">
     <header>
-      <h1 class="logo" itemprop="name">1mb</h1>
+      <div class="logo-container">
+        <h1 class="logo" itemprop="name">1mb</h1>
+      </div>
       <p class="subtitle" itemprop="alternateName">one-man-band</p>
     </header>
 
@@ -87,7 +94,7 @@
         Others just build.
       </p>
 
-      <hr aria-hidden="true">
+      <div class="separator" aria-hidden="true">· · ·</div>
 
       <!-- Counter -->
       <div id="counter" class="counter">
