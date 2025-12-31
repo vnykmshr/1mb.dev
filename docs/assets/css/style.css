@@ -87,7 +87,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* Watermark */
@@ -96,12 +96,12 @@ body::before {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -45%);
   font-family: var(--font-display);
-  font-size: clamp(300px, 50vw, 500px);
+  font-size: clamp(250px, 40vw, 400px);
   font-weight: 700;
   color: var(--fg);
-  opacity: 0.03;
+  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
   line-height: 1;
@@ -130,23 +130,13 @@ article {
    Logo
    ======================================== */
 
-.logo-container {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  padding: var(--space-3) var(--space-5);
-  margin-bottom: var(--space-3);
-  background: var(--bg);
-}
-
 .logo {
   font-family: var(--font-display);
   font-size: var(--text-3xl);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1;
+  margin-bottom: var(--space-2);
 }
 
 .subtitle {
@@ -202,12 +192,12 @@ article {
 
 .counter-btn {
   font-family: var(--font-body);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   font-weight: 500;
   font-style: italic;
-  color: var(--fg);
-  background: transparent;
-  border: 1.5px solid var(--border);
+  color: var(--bg);
+  background: var(--fg);
+  border: none;
   padding: var(--space-2) var(--space-4);
   border-radius: calc(var(--radius) / 2);
   cursor: pointer;
@@ -215,7 +205,7 @@ article {
 }
 
 .counter-btn:hover:not(:disabled) {
-  border-color: var(--fg);
+  opacity: 0.85;
 }
 
 .counter-btn:active:not(:disabled) {
@@ -227,9 +217,9 @@ article {
 }
 
 .counter-btn.voted {
-  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
   font-style: normal;
-  opacity: 0.6;
 }
 
 .counter-proof {
@@ -242,6 +232,80 @@ article {
 .counter-proof span {
   color: var(--fg);
   font-weight: 500;
+}
+
+/* ========================================
+   Theme Toggle
+   ======================================== */
+
+.theme-toggle {
+  position: fixed;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-base);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.theme-toggle:hover {
+  border-color: var(--fg);
+  color: var(--fg);
+}
+
+/* Icons */
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+/* Default (system/light): show moon */
+.theme-toggle .icon-moon {
+  display: block;
+}
+
+/* Dark mode: show sun */
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+/* Light mode explicit: show moon */
+[data-theme="light"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .icon-moon {
+  display: block;
+}
+
+/* Theme overrides */
+[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --fg: #e5e5e5;
+  --muted: #888;
+  --border: #2a2a2a;
+  --surface: #151515;
+}
+
+[data-theme="light"] {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #6b6b6b;
+  --border: #e0e0e0;
+  --surface: #f0f0f0;
 }
 
 /* ========================================

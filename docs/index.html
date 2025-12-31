@@ -74,13 +74,20 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Theme (load early to prevent flash) -->
+  <script src="/assets/js/theme.js"></script>
 </head>
 <body>
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    <span class="icon-sun">☀</span>
+    <span class="icon-moon">☾</span>
+  </button>
+
   <main role="main" itemscope itemtype="https://schema.org/Organization">
     <header>
-      <div class="logo-container">
-        <h1 class="logo" itemprop="name">1mb</h1>
-      </div>
+      <h1 class="logo" itemprop="name">1mb</h1>
       <p class="subtitle" itemprop="alternateName">one-man-band</p>
     </header>
 
