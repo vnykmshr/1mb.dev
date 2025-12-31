@@ -1,0 +1,5 @@
+# 1mb.dev
+User-agent: *
+Allow: /
+
+Sitemap: https://1mb.dev/sitemap.xml
