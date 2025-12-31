@@ -1,0 +1,28 @@
+# Local tracking
+todos/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Go
+vendor/
+
+# Build & env
+dist/
+build/
+.env
+.env.local
