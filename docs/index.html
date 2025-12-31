@@ -15,10 +15,10 @@
   <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- Open Graph / Facebook -->
@@ -26,7 +26,7 @@
   <meta property="og:url" content="https://1mb.dev/">
   <meta property="og:title" content="1mb — one-man-band">
   <meta property="og:description" content="All the hats. One head. A placeholder for those who build alone.">
-  <meta property="og:image" content="https://1mb.dev/og-image.png">
+  <meta property="og:image" content="https://1mb.dev/assets/images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="1mb">
@@ -37,7 +37,7 @@
   <meta name="twitter:url" content="https://1mb.dev/">
   <meta name="twitter:title" content="1mb — one-man-band">
   <meta name="twitter:description" content="All the hats. One head. A placeholder for those who build alone.">
-  <meta name="twitter:image" content="https://1mb.dev/og-image.png">
+  <meta name="twitter:image" content="https://1mb.dev/assets/images/og-image.png">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://1mb.dev/">
@@ -50,7 +50,7 @@
     "name": "1mb",
     "alternateName": "one-man-band",
     "url": "https://1mb.dev",
-    "logo": "https://1mb.dev/logo.svg",
+    "logo": "https://1mb.dev/assets/images/logo.svg",
     "description": "All the hats. One head. A placeholder for those who build alone.",
     "foundingDate": "2024",
     "slogan": "All the hats. One head."
@@ -67,112 +67,8 @@
   }
   </script>
 
-  <style>
-    :root {
-      --bg: #fafafa;
-      --fg: #1a1a1a;
-      --muted: #6b6b6b;
-      --border: #e0e0e0;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0a0a0a;
-        --fg: #e5e5e5;
-        --muted: #888;
-        --border: #2a2a2a;
-      }
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    main {
-      max-width: 480px;
-      text-align: center;
-    }
-
-    .logo {
-      font-size: 3rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .subtitle {
-      font-size: 0.875rem;
-      color: var(--muted);
-      text-transform: lowercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 3rem;
-    }
-
-    .manifesto {
-      font-size: 1.125rem;
-      color: var(--fg);
-      margin-bottom: 2rem;
-    }
-
-    .description {
-      font-size: 0.9375rem;
-      color: var(--muted);
-      max-width: 360px;
-      margin: 0 auto;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      width: 60px;
-      margin: 2.5rem auto;
-    }
-
-    .closing {
-      font-size: 0.9375rem;
-      color: var(--fg);
-      font-style: italic;
-    }
-
-    /* Accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-    }
-
-    /* Print styles */
-    @media print {
-      body {
-        background: white;
-        color: black;
-      }
-      .logo, .subtitle, .manifesto, .description, .closing {
-        color: black;
-      }
-    }
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
   <main role="main" itemscope itemtype="https://schema.org/Organization">
