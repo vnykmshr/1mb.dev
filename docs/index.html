@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1MB</title>
+  <meta name="description" content="One-Man-Band. A placeholder for those who build alone.">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --fg: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: #e0e0e0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0a0a;
+        --fg: #e5e5e5;
+        --muted: #888;
+        --border: #2a2a2a;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 480px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-transform: lowercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 3rem;
+    }
+
+    .manifesto {
+      font-size: 1.125rem;
+      color: var(--fg);
+      margin-bottom: 2rem;
+    }
+
+    .description {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      width: 60px;
+      margin: 2.5rem auto;
+    }
+
+    .hats {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .hats span {
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="logo">1MB</div>
+    <div class="subtitle">one-man-band</div>
+
+    <p class="manifesto">
+      A placeholder for those who build alone.
+    </p>
+
+    <p class="description">
+      For anyone who's worn all the hats, shipped real work,
+      and never needed a company name behind them.
+    </p>
+
+    <hr>
+
+    <p class="hats">
+      pm <span>/</span> ux <span>/</span> engineer <span>/</span> security <span>/</span> user
+    </p>
+  </main>
+</body>
+</html>
