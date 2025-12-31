@@ -98,6 +98,51 @@ hr {
   margin: 2.5rem auto;
 }
 
+/* Counter */
+.counter {
+  margin-top: 2.5rem;
+}
+
+.counter-count {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.counter-count span {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.counter-btn {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.counter-btn:hover:not(:disabled) {
+  border-color: var(--muted);
+  background: var(--border);
+}
+
+.counter-btn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.counter-btn.voted {
+  border-color: transparent;
+  background: transparent;
+  opacity: 0.5;
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   html {
