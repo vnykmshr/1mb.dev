@@ -3,8 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1mb</title>
-  <meta name="description" content="1mb. one-man-band. all the hats. one head.">
+
+  <!-- Primary Meta Tags -->
+  <title>1mb — one-man-band</title>
+  <meta name="title" content="1mb — one-man-band">
+  <meta name="description" content="All the hats. One head. A placeholder for those who build alone.">
+  <meta name="keywords" content="solo developer, indie maker, one-man-band, independent builder, full-stack">
+  <meta name="author" content="1mb">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://1mb.dev/">
+  <meta property="og:title" content="1mb — one-man-band">
+  <meta property="og:description" content="All the hats. One head. A placeholder for those who build alone.">
+  <meta property="og:image" content="https://1mb.dev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="1mb">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://1mb.dev/">
+  <meta name="twitter:title" content="1mb — one-man-band">
+  <meta name="twitter:description" content="All the hats. One head. A placeholder for those who build alone.">
+  <meta name="twitter:image" content="https://1mb.dev/og-image.png">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://1mb.dev/">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "1mb",
+    "alternateName": "one-man-band",
+    "url": "https://1mb.dev",
+    "logo": "https://1mb.dev/logo.svg",
+    "description": "All the hats. One head. A placeholder for those who build alone.",
+    "foundingDate": "2024",
+    "slogan": "All the hats. One head."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "1mb",
+    "url": "https://1mb.dev",
+    "description": "All the hats. One head. A placeholder for those who build alone."
+  }
+  </script>
+
   <style>
     :root {
       --bg: #fafafa;
@@ -28,6 +90,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
       background: var(--bg);
@@ -39,6 +105,8 @@
       align-items: center;
       padding: 2rem;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     main {
@@ -86,27 +154,49 @@
       color: var(--fg);
       font-style: italic;
     }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      .logo, .subtitle, .manifesto, .description, .closing {
+        color: black;
+      }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <div class="logo">1mb</div>
-    <div class="subtitle">one-man-band</div>
+  <main role="main" itemscope itemtype="https://schema.org/Organization">
+    <header>
+      <h1 class="logo" itemprop="name">1mb</h1>
+      <p class="subtitle" itemprop="alternateName">one-man-band</p>
+    </header>
 
-    <p class="manifesto">
-      All the hats. One head.
-    </p>
+    <article>
+      <p class="manifesto" itemprop="slogan">
+        All the hats. One head.
+      </p>
 
-    <p class="description">
-      Some build with teams and titles.<br>
-      Others just build.
-    </p>
+      <p class="description" itemprop="description">
+        Some build with teams and titles.<br>
+        Others just build.
+      </p>
 
-    <hr>
+      <hr aria-hidden="true">
 
-    <p class="closing">
-      This is for the others.
-    </p>
+      <p class="closing">
+        This is for the others.
+      </p>
+    </article>
   </main>
 </body>
 </html>
