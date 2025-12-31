@@ -17,12 +17,19 @@
   // Check if user already voted (client-side memory)
   const hasVotedLocally = localStorage.getItem('1mb_voted') === 'true';
 
+  // Format count with proper grammar
+  function formatCount(count) {
+    if (count === 0) return 'none yet';
+    if (count === 1) return '1 other';
+    return count.toLocaleString() + ' others';
+  }
+
   // Fetch current count
   async function fetchCount() {
     try {
       const res = await fetch(API_URL);
       const data = await res.json();
-      updateDisplay(data.count);
+      countEl.textContent = formatCount(data.count);
     } catch (e) {
       countEl.textContent = '—';
     }
@@ -39,19 +46,12 @@
       const res = await fetch(API_URL, { method: 'POST' });
       const data = await res.json();
 
-      updateDisplay(data.count);
+      countEl.textContent = formatCount(data.count);
       markAsVoted();
 
     } catch (e) {
       button.textContent = 'error';
-    }
-  }
-
-  function updateDisplay(count) {
-    if (typeof count === 'number' && count > 0) {
-      countEl.textContent = count.toLocaleString();
-    } else {
-      countEl.textContent = '0';
+      button.disabled = false;
     }
   }
 

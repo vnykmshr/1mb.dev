@@ -84,12 +84,6 @@ main {
   margin: 0 auto;
 }
 
-.closing {
-  font-size: 0.9375rem;
-  color: var(--fg);
-  font-style: italic;
-}
-
 /* Components */
 hr {
   border: none;
@@ -100,47 +94,49 @@ hr {
 
 /* Counter */
 .counter {
-  margin-top: 2.5rem;
-}
-
-.counter-count {
-  font-size: 0.8125rem;
-  color: var(--muted);
-  margin-bottom: 0.75rem;
-}
-
-.counter-count span {
-  font-weight: 600;
-  color: var(--fg);
+  margin-top: 0;
 }
 
 .counter-btn {
   font-family: inherit;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
+  font-style: italic;
   color: var(--fg);
   background: transparent;
   border: 1px solid var(--border);
-  padding: 0.5rem 1.25rem;
+  padding: 0.625rem 1.5rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
 }
 
 .counter-btn:hover:not(:disabled) {
-  border-color: var(--muted);
-  background: var(--border);
+  border-color: var(--fg);
+}
+
+.counter-btn:active:not(:disabled) {
+  transform: scale(0.98);
 }
 
 .counter-btn:disabled {
   cursor: default;
-  opacity: 0.6;
 }
 
 .counter-btn.voted {
   border-color: transparent;
-  background: transparent;
-  opacity: 0.5;
+  font-style: normal;
+  opacity: 0.7;
+}
+
+.counter-proof {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+.counter-proof span {
+  color: var(--fg);
 }
 
 /* Accessibility */
@@ -160,8 +156,11 @@ hr {
   .logo,
   .subtitle,
   .manifesto,
-  .description,
-  .closing {
+  .description {
     color: black;
+  }
+
+  .counter {
+    display: none;
   }
 }
