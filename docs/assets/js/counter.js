@@ -7,6 +7,7 @@
   'use strict';
 
   const API_URL = 'https://1mb-counter.vmx-builds.workers.dev';
+  const INITIAL_TEXT = 'count me in';
 
   const counter = document.getElementById('counter');
   const countEl = document.getElementById('count');
@@ -16,6 +17,7 @@
 
   // Check if user already voted (client-side memory)
   const hasVotedLocally = localStorage.getItem('1mb_voted') === 'true';
+  let isErrorState = false;
 
   // Format count with proper grammar
   function formatCount(count) {
@@ -24,20 +26,52 @@
     return count.toLocaleString() + ' others';
   }
 
+  // Show count with fade-in animation
+  function showCount(count) {
+    countEl.classList.remove('count-loading');
+    countEl.textContent = formatCount(count);
+    countEl.classList.add('count-loaded');
+  }
+
+  // Show error state
+  function showError() {
+    countEl.classList.remove('count-loading');
+    countEl.textContent = '—';
+  }
+
   // Fetch current count
   async function fetchCount() {
     try {
       const res = await fetch(API_URL);
       const data = await res.json();
-      countEl.textContent = formatCount(data.count);
+      showCount(data.count);
     } catch (e) {
-      countEl.textContent = '—';
+      showError();
     }
+  }
+
+  // Handle error state with retry
+  function setErrorState() {
+    isErrorState = true;
+    button.textContent = 'try again';
+    button.disabled = false;
+    button.classList.add('error');
+  }
+
+  // Clear error state
+  function clearErrorState() {
+    isErrorState = false;
+    button.classList.remove('error');
   }
 
   // Submit vote
   async function vote() {
-    if (hasVotedLocally || button.disabled) return;
+    if (hasVotedLocally || (button.disabled && !isErrorState)) return;
+
+    // Clear error state if retrying
+    if (isErrorState) {
+      clearErrorState();
+    }
 
     button.disabled = true;
     button.textContent = '...';
@@ -46,27 +80,30 @@
       const res = await fetch(API_URL, { method: 'POST' });
       const data = await res.json();
 
-      countEl.textContent = formatCount(data.count);
+      showCount(data.count);
       markAsVoted();
 
     } catch (e) {
-      button.textContent = 'error';
-      button.disabled = false;
+      setErrorState();
     }
   }
 
   function markAsVoted() {
     localStorage.setItem('1mb_voted', 'true');
-    button.textContent = 'counted';
+    button.textContent = "you're in";
     button.disabled = true;
     button.classList.add('voted');
+    button.setAttribute('aria-pressed', 'true');
   }
 
   // Init
   if (hasVotedLocally) {
-    button.textContent = 'counted';
+    button.textContent = "you're in";
     button.disabled = true;
     button.classList.add('voted');
+    button.setAttribute('aria-pressed', 'true');
+  } else {
+    button.setAttribute('aria-pressed', 'false');
   }
 
   button.addEventListener('click', vote);

@@ -4,6 +4,28 @@
  */
 
 /* ========================================
+   Fonts (self-hosted)
+   ======================================== */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/assets/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/space-grotesk-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ========================================
    Design Tokens
    ======================================== */
 
@@ -96,7 +118,10 @@ body::before {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -45%);
+  transform: translate(
+    calc(-50% + var(--parallax-x, 0px)),
+    calc(-45% + var(--parallax-y, 0px))
+  );
   font-family: var(--font-display);
   font-size: clamp(250px, 40vw, 400px);
   font-weight: 700;
@@ -105,6 +130,8 @@ body::before {
   pointer-events: none;
   z-index: 0;
   line-height: 1;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
 }
 
 /* ========================================
@@ -216,9 +243,25 @@ article {
   cursor: default;
 }
 
+.counter-btn:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
 .counter-btn.voted {
   background: transparent;
   color: var(--muted);
+  font-style: normal;
+}
+
+.counter-btn.voted::before {
+  content: '✓ ';
+}
+
+.counter-btn.error {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
   font-style: normal;
 }
 
@@ -232,6 +275,38 @@ article {
 .counter-proof span {
   color: var(--fg);
   font-weight: 500;
+}
+
+/* Counter loading skeleton - shimmer effect */
+.count-loading {
+  display: inline-block;
+  width: 4em;
+  height: 1em;
+  background: linear-gradient(
+    90deg,
+    var(--border) 0%,
+    var(--surface) 50%,
+    var(--border) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Counter fade-in */
+.count-loaded {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ========================================
@@ -260,6 +335,11 @@ article {
 .theme-toggle:hover {
   border-color: var(--fg);
   color: var(--fg);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
 }
 
 /* Icons */

@@ -8,7 +8,7 @@ All the hats. One head.
 
 ---
 
-A placeholder for those who build alone.
+A quiet corner for those who build.
 
 Some build with teams and titles. Others just build.
 

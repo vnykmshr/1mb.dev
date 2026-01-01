@@ -1,7 +1,7 @@
 {
   "name": "1mb",
   "short_name": "1mb",
-  "description": "All the hats. One head. A placeholder for those who build alone.",
+  "description": "All the hats. One head. A quiet corner for those who build.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",

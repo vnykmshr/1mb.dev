@@ -7,12 +7,16 @@
   <!-- Primary Meta Tags -->
   <title>1mb — one-man-band</title>
   <meta name="title" content="1mb — one-man-band">
-  <meta name="description" content="All the hats. One head. A placeholder for those who build alone.">
+  <meta name="description" content="All the hats. One head. A quiet corner for those who build.">
   <meta name="keywords" content="solo developer, indie maker, one-man-band, independent builder, full-stack">
   <meta name="author" content="1mb">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://1mb-counter.vmx-builds.workers.dev;">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
@@ -25,7 +29,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://1mb.dev/">
   <meta property="og:title" content="1mb — one-man-band">
-  <meta property="og:description" content="All the hats. One head. A placeholder for those who build alone.">
+  <meta property="og:description" content="All the hats. One head. A quiet corner for those who build.">
   <meta property="og:image" content="https://1mb.dev/assets/images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -36,16 +40,18 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://1mb.dev/">
   <meta name="twitter:title" content="1mb — one-man-band">
-  <meta name="twitter:description" content="All the hats. One head. A placeholder for those who build alone.">
+  <meta name="twitter:description" content="All the hats. One head. A quiet corner for those who build.">
   <meta name="twitter:image" content="https://1mb.dev/assets/images/og-image.png">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://1mb.dev/">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <!-- Fonts (self-hosted) -->
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/space-grotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Preconnect to API -->
+  <link rel="preconnect" href="https://1mb-counter.vmx-builds.workers.dev">
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -56,7 +62,7 @@
     "alternateName": "one-man-band",
     "url": "https://1mb.dev",
     "logo": "https://1mb.dev/assets/images/logo.svg",
-    "description": "All the hats. One head. A placeholder for those who build alone.",
+    "description": "All the hats. One head. A quiet corner for those who build.",
     "foundingDate": "2024",
     "slogan": "All the hats. One head."
   }
@@ -68,7 +74,7 @@
     "@type": "WebSite",
     "name": "1mb",
     "url": "https://1mb.dev",
-    "description": "All the hats. One head. A placeholder for those who build alone."
+    "description": "All the hats. One head. A quiet corner for those who build."
   }
   </script>
 
@@ -105,13 +111,21 @@
 
       <!-- Counter -->
       <div id="counter" class="counter">
-        <button id="count-btn" class="counter-btn">i'm one</button>
-        <p class="counter-proof">joined by <span id="count">—</span></p>
+        <button id="count-btn" class="counter-btn">count me in</button>
+        <p class="counter-proof" aria-live="polite">joined by <span id="count" class="count-loading"></span></p>
       </div>
     </article>
   </main>
 
   <!-- Scripts -->
   <script src="/assets/js/counter.js"></script>
+  <script src="/assets/js/parallax.js"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
+  </script>
 </body>
 </html>
