@@ -6,15 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-01-02
+
 ### Added
 
 - MIT LICENSE file
 - `.nvmrc` for Node.js version consistency
 - CHANGELOG.md for release tracking
 - CI pipeline with ESLint, Prettier, HTML/CSS validation
+- GitHub Actions deployment with auto SW versioning (git SHA)
 - humans.txt with project philosophy
 - Counter API `/health` endpoint with Redis connectivity check
 - Wrangler CLI setup for Counter API deployment
+- workers/README.md with setup guide
+- Development section in README
 
 ### Changed
 
@@ -23,7 +28,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added `meta author` tag and `type="button"` attributes
 - Updated manifest description for consistency
 - Added `site.webmanifest` to Service Worker cache
-- Bumped Service Worker cache to v4
+- Updated Wrangler to v4.54.0 with proper secrets management
+- Updated humans.txt: Zed, Vim as editors
 
 ## [1.1.0] - 2025-01
 
