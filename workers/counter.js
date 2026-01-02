@@ -19,7 +19,22 @@
  *   - To backup: GET https://your-upstash-url with Authorization header
  *   - To restore: SET count <value> via Upstash console or REST API
  *   - Upstash console: https://console.upstash.com
+ *
+ * Logging:
+ *   - Structured JSON logs for all requests
+ *   - View with: npm run worker:tail
  */
+
+// Structured logging helper
+function log(level, event, data = {}) {
+  const entry = {
+    level,
+    event,
+    ts: new Date().toISOString(),
+    ...data,
+  };
+  console.log(JSON.stringify(entry));
+}
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': 'https://1mb.dev',
@@ -69,7 +84,9 @@ async function redis(env, command) {
 // GET /: Return current count
 async function handleGet(env) {
   const count = await redis(env, ['GET', 'count']);
-  return { count: parseInt(count) || 0 };
+  const result = { count: parseInt(count) || 0 };
+  log('info', 'count.fetch', { count: result.count });
+  return result;
 }
 
 // POST /: Increment count (rate limited)
@@ -84,6 +101,7 @@ async function handlePost(request, env) {
 
   if (hasVoted) {
     const count = await redis(env, ['GET', 'count']);
+    log('info', 'vote.rate_limited', { count: parseInt(count) || 0 });
     return { count: parseInt(count) || 0, voted: true, message: 'Already counted' };
   }
 
@@ -93,6 +111,7 @@ async function handlePost(request, env) {
   // Mark IP as voted (expires in 24 hours = 86400 seconds)
   await redis(env, ['SET', rateLimitKey, '1', 'EX', 86400]);
 
+  log('info', 'vote.new', { count: parseInt(count) });
   return { count: parseInt(count), voted: true, message: 'Counted' };
 }
 
@@ -105,6 +124,7 @@ async function handleHealth(env) {
     await redis(env, ['PING']);
     const latency = Date.now() - start;
 
+    log('info', 'health.ok', { latency_ms: latency });
     return {
       status: 'ok',
       service: '1mb-counter',
@@ -114,6 +134,7 @@ async function handleHealth(env) {
       latency_ms: latency,
     };
   } catch (error) {
+    log('error', 'health.degraded', { error: 'Redis connection failed' });
     return {
       status: 'degraded',
       service: '1mb-counter',
@@ -125,25 +146,43 @@ async function handleHealth(env) {
   }
 }
 
+// Extract request context for logging
+function getRequestContext(request) {
+  const cf = request.cf || {};
+  return {
+    method: request.method,
+    path: new URL(request.url).pathname,
+    country: cf.country || 'unknown',
+    city: cf.city || 'unknown',
+    colo: cf.colo || 'unknown',
+    ua: request.headers.get('User-Agent')?.slice(0, 50) || 'unknown',
+  };
+}
+
 // Main handler
 export default {
   async fetch(request, env, ctx) {
+    const start = Date.now();
     const url = new URL(request.url);
     const corsHeaders = getCorsHeaders(request);
+    const reqCtx = getRequestContext(request);
 
-    // Handle preflight
+    // Handle preflight (no logging for OPTIONS)
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders });
     }
 
     try {
       let result;
+      let status = 200;
 
       // Route: /health
       if (url.pathname === '/health') {
         result = await handleHealth(env);
+        status = result.status === 'ok' ? 200 : 503;
+        log('info', 'request', { ...reqCtx, status, duration_ms: Date.now() - start });
         return new Response(JSON.stringify(result), {
-          status: result.status === 'ok' ? 200 : 503,
+          status,
           headers: corsHeaders,
         });
       }
@@ -154,18 +193,21 @@ export default {
       } else if (request.method === 'POST') {
         result = await handlePost(request, env);
       } else {
+        log('warn', 'request', { ...reqCtx, status: 405, duration_ms: Date.now() - start });
         return new Response(JSON.stringify({ error: 'Method not allowed' }), {
           status: 405,
           headers: corsHeaders,
         });
       }
 
+      log('info', 'request', { ...reqCtx, status, duration_ms: Date.now() - start });
       return new Response(JSON.stringify(result), {
         status: 200,
         headers: corsHeaders,
       });
 
     } catch (error) {
+      log('error', 'request', { ...reqCtx, status: 500, error: error.message, duration_ms: Date.now() - start });
       return new Response(JSON.stringify({ error: 'Internal error' }), {
         status: 500,
         headers: corsHeaders,
