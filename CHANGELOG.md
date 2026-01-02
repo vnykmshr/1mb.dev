@@ -7,20 +7,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+
 - MIT LICENSE file
 - `.nvmrc` for Node.js version consistency
 - CHANGELOG.md for release tracking
+- CI pipeline with ESLint, Prettier, HTML/CSS validation
+- humans.txt with project philosophy
+- Counter API `/health` endpoint with Redis connectivity check
 
 ### Changed
+
 - Refactored 404.html to use shared stylesheet (171 → 35 lines)
 - Improved semantic markup: `<hr>` for separator, `<section>` for counter
-- Added `meta author` tag to all pages
+- Added `meta author` tag and `type="button"` attributes
 - Updated manifest description for consistency
-- Bumped Service Worker cache to v3
+- Added `site.webmanifest` to Service Worker cache
+- Bumped Service Worker cache to v4
 
 ## [1.1.0] - 2025-01
 
 ### Added
+
 - Context section: "Sometimes solo. Sometimes inside a team. Always accountable."
 - Invitation line bridging manifesto and counter
 - Community counter with anonymous voting
@@ -30,6 +37,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - PWA manifest for mobile installation
 
 ### Changed
+
 - Refined copy to ownership mindset
 - Updated og-image with current style and copy
 - UI refresh: typography, spacing, visual depth
@@ -38,6 +46,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [1.0.0] - 2024-12
 
 ### Added
+
 - Initial landing page
 - Brand assets and SEO markup
 - GitHub Pages deployment with custom domain (1mb.dev)

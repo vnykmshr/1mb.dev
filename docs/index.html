@@ -1,143 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta Tags -->
-  <title>1mb — one-man-band</title>
-  <meta name="title" content="1mb — one-man-band">
-  <meta name="description" content="All the hats. One head. A way of building — own it end to end, ship without waiting.">
-  <meta name="keywords" content="one-man-band, end-to-end ownership, ship without waiting, builder mindset, accountability">
-  <meta name="author" content="1mb">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
-  <meta name="color-scheme" content="dark light">
+    <!-- Primary Meta Tags -->
+    <title>1mb — one-man-band</title>
+    <meta name="title" content="1mb — one-man-band" />
+    <meta
+      name="description"
+      content="All the hats. One head. A way of building — own it end to end, ship without waiting."
+    />
+    <meta
+      name="keywords"
+      content="one-man-band, end-to-end ownership, ship without waiting, builder mindset, accountability"
+    />
+    <meta name="author" content="1mb" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
 
-  <!-- Security -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://1mb-counter.vmx-builds.workers.dev;">
+    <!-- Security -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://1mb-counter.vmx-builds.workers.dev;"
+    />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://1mb.dev/">
-  <meta property="og:title" content="1mb — one-man-band">
-  <meta property="og:description" content="All the hats. One head. A way of building — own it end to end, ship without waiting.">
-  <meta property="og:image" content="https://1mb.dev/assets/images/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:site_name" content="1mb">
-  <meta property="og:locale" content="en_US">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://1mb.dev/" />
+    <meta property="og:title" content="1mb — one-man-band" />
+    <meta
+      property="og:description"
+      content="All the hats. One head. A way of building — own it end to end, ship without waiting."
+    />
+    <meta property="og:image" content="https://1mb.dev/assets/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="1mb" />
+    <meta property="og:locale" content="en_US" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://1mb.dev/">
-  <meta name="twitter:title" content="1mb — one-man-band">
-  <meta name="twitter:description" content="All the hats. One head. A way of building — own it end to end, ship without waiting.">
-  <meta name="twitter:image" content="https://1mb.dev/assets/images/og-image.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://1mb.dev/" />
+    <meta name="twitter:title" content="1mb — one-man-band" />
+    <meta
+      name="twitter:description"
+      content="All the hats. One head. A way of building — own it end to end, ship without waiting."
+    />
+    <meta name="twitter:image" content="https://1mb.dev/assets/images/og-image.png" />
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://1mb.dev/">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://1mb.dev/" />
 
-  <!-- Fonts (self-hosted) -->
-  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/space-grotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Fonts (self-hosted) -->
+    <link
+      rel="preload"
+      href="/assets/fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/space-grotesk-700-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
-  <!-- Preconnect to API -->
-  <link rel="preconnect" href="https://1mb-counter.vmx-builds.workers.dev">
+    <!-- Preconnect to API -->
+    <link rel="preconnect" href="https://1mb-counter.vmx-builds.workers.dev" />
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "1mb",
-    "alternateName": "one-man-band",
-    "url": "https://1mb.dev",
-    "description": "All the hats. One head. A way of building — own it end to end, ship without waiting.",
-    "keywords": ["ownership", "end-to-end", "builder", "accountability", "shipping"]
-  }
-  </script>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "1mb",
+        "alternateName": "one-man-band",
+        "url": "https://1mb.dev",
+        "description": "All the hats. One head. A way of building — own it end to end, ship without waiting.",
+        "keywords": ["ownership", "end-to-end", "builder", "accountability", "shipping"]
+      }
+    </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "name": "1mb",
-    "alternateName": "one-man-band",
-    "url": "https://1mb.dev",
-    "description": "A way of working. Own it end to end. Ship without waiting. Sometimes solo, sometimes inside a team. Always accountable.",
-    "slogan": "All the hats. One head.",
-    "abstract": "1mb recognizes a mode of building — taking full ownership, shipping without waiting for permission, and staying accountable regardless of team size.",
-    "keywords": ["one-man-band", "ownership", "accountability", "builder mindset"]
-  }
-  </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "1mb",
+        "alternateName": "one-man-band",
+        "url": "https://1mb.dev",
+        "description": "A way of working. Own it end to end. Ship without waiting. Sometimes solo, sometimes inside a team. Always accountable.",
+        "slogan": "All the hats. One head.",
+        "abstract": "1mb recognizes a mode of building — taking full ownership, shipping without waiting for permission, and staying accountable regardless of team size.",
+        "keywords": ["one-man-band", "ownership", "accountability", "builder mindset"]
+      }
+    </script>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
 
-  <!-- Theme (load early to prevent flash) -->
-  <script src="/assets/js/theme.js"></script>
-</head>
-<body>
-  <!-- Theme Toggle -->
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-    <span class="icon-sun">☀</span>
-    <span class="icon-moon">☾</span>
-  </button>
+    <!-- Theme (load early to prevent flash) -->
+    <script src="/assets/js/theme.js"></script>
+  </head>
+  <body>
+    <!-- Theme Toggle -->
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <span class="icon-sun">☀</span>
+      <span class="icon-moon">☾</span>
+    </button>
 
-  <main>
-    <header>
-      <h1 class="logo">1mb</h1>
-      <p class="subtitle">one-man-band</p>
-    </header>
+    <main>
+      <header>
+        <h1 class="logo">1mb</h1>
+        <p class="subtitle">one-man-band</p>
+      </header>
 
-    <article>
-      <p class="manifesto">
-        All the hats. One head.
-      </p>
+      <article>
+        <p class="manifesto">All the hats. One head.</p>
 
-      <p class="description">
-        Own it end to end.<br>
-        Ship without waiting.
-      </p>
+        <p class="description">
+          Own it end to end.
+          <br />
+          Ship without waiting.
+        </p>
 
-      <p class="context">
-        Sometimes solo.<br>
-        Sometimes inside a team.<br>
-        Always accountable.
-      </p>
+        <p class="context">
+          Sometimes solo.
+          <br />
+          Sometimes inside a team.
+          <br />
+          Always accountable.
+        </p>
 
-      <hr class="separator" aria-hidden="true">
+        <hr class="separator" aria-hidden="true" />
 
-      <p class="invitation">
-        If this resonates, you're already part of it.
-      </p>
+        <p class="invitation">If this resonates, you're already part of it.</p>
 
-      <!-- Counter -->
-      <section id="counter" class="counter" role="region" aria-label="Community counter">
-        <button id="count-btn" class="counter-btn">count me in</button>
-        <p class="counter-proof" aria-live="polite">joined by <span id="count" class="count-loading"></span></p>
-      </section>
-    </article>
-  </main>
+        <!-- Counter -->
+        <section id="counter" class="counter" aria-label="Community counter">
+          <button type="button" id="count-btn" class="counter-btn">count me in</button>
+          <p class="counter-proof" aria-live="polite">
+            joined by
+            <span id="count" class="count-loading"></span>
+          </p>
+        </section>
+      </article>
+    </main>
 
-  <!-- Scripts -->
-  <script src="/assets/js/counter.js"></script>
-  <script src="/assets/js/parallax.js"></script>
+    <!-- Scripts -->
+    <script src="/assets/js/counter.js"></script>
+    <script src="/assets/js/parallax.js"></script>
 
-  <!-- Service Worker Registration -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(() => {});
-    }
-  </script>
-</body>
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      }
+    </script>
+  </body>
 </html>

@@ -1,0 +1,7 @@
+node_modules/
+todos/
+docs/assets/fonts/
+docs/assets/images/
+*.woff2
+*.png
+*.svg

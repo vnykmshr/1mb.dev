@@ -76,5 +76,4 @@
 
   document.addEventListener('mousemove', handleMouseMove, { passive: true });
   document.addEventListener('mouseleave', handleMouseLeave);
-
 })();

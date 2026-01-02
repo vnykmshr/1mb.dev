@@ -1,0 +1,27 @@
+{
+  "name": "1mb.dev",
+  "version": "1.1.0",
+  "description": "All the hats. One head. Own it end to end. Ship without waiting.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint docs/assets/js/*.js",
+    "lint:fix": "eslint docs/assets/js/*.js --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "validate:html": "html-validate docs/*.html",
+    "validate:css": "stylelint docs/assets/css/*.css",
+    "validate": "npm run lint && npm run format && npm run validate:html && npm run validate:css",
+    "ci": "npm run validate"
+  },
+  "devDependencies": {
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "html-validate": "^8.28.0",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard": "^36.0.1"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

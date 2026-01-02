@@ -7,7 +7,6 @@
   'use strict';
 
   const API_URL = 'https://1mb-counter.vmx-builds.workers.dev';
-  const INITIAL_TEXT = 'count me in';
 
   const counter = document.getElementById('counter');
   const countEl = document.getElementById('count');
@@ -45,7 +44,7 @@
       const res = await fetch(API_URL);
       const data = await res.json();
       showCount(data.count);
-    } catch (e) {
+    } catch (_e) {
       showError();
     }
   }
@@ -82,8 +81,7 @@
 
       showCount(data.count);
       markAsVoted();
-
-    } catch (e) {
+    } catch (_e) {
       setErrorState();
     }
   }
@@ -108,5 +106,4 @@
 
   button.addEventListener('click', vote);
   fetchCount();
-
 })();

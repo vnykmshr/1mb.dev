@@ -47,5 +47,4 @@
       toggle.addEventListener('click', toggleTheme);
     }
   });
-
 })();
