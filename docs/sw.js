@@ -8,6 +8,7 @@ const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/404.html',
+  '/site.webmanifest',
   '/assets/css/style.css',
   '/assets/js/theme.js',
   '/assets/js/counter.js',
