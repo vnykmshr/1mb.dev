@@ -13,7 +13,9 @@
   font-weight: 400 600;
   font-display: swap;
   src: url('/assets/fonts/inter-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -22,7 +24,9 @@
   font-weight: 700;
   font-display: swap;
   src: url('/assets/fonts/space-grotesk-700-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* ========================================
@@ -38,23 +42,23 @@
   --surface: #f0f0f0;
 
   /* Spacing - 8pt grid */
-  --space-1: 0.5rem;    /* 8px */
-  --space-2: 1rem;      /* 16px */
-  --space-3: 1.5rem;    /* 24px */
-  --space-4: 2rem;      /* 32px */
-  --space-5: 2.5rem;    /* 40px */
-  --space-6: 3rem;      /* 48px */
-  --space-8: 4rem;      /* 64px */
+  --space-1: 0.5rem; /* 8px */
+  --space-2: 1rem; /* 16px */
+  --space-3: 1.5rem; /* 24px */
+  --space-4: 2rem; /* 32px */
+  --space-5: 2.5rem; /* 40px */
+  --space-6: 3rem; /* 48px */
+  --space-8: 4rem; /* 64px */
 
   /* Type Scale - 1.25 ratio */
-  --text-xs: 0.75rem;   /* 12px */
-  --text-sm: 0.875rem;  /* 14px */
-  --text-base: 1rem;    /* 16px */
-  --text-md: 1.125rem;  /* 18px */
-  --text-lg: 1.25rem;   /* 20px */
-  --text-xl: 1.5rem;    /* 24px */
-  --text-2xl: 2rem;     /* 32px */
-  --text-3xl: 2.5rem;   /* 40px */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-md: 1.125rem; /* 18px */
+  --text-lg: 1.25rem; /* 20px */
+  --text-xl: 1.5rem; /* 24px */
+  --text-2xl: 2rem; /* 32px */
+  --text-3xl: 2.5rem; /* 40px */
 
   /* Fonts */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
@@ -118,10 +122,7 @@ body::before {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(
-    calc(-50% + var(--parallax-x, 0px)),
-    calc(-45% + var(--parallax-y, 0px))
-  );
+  transform: translate(calc(-50% + var(--parallax-x, 0px)), calc(-45% + var(--parallax-y, 0px)));
   font-family: var(--font-display);
   font-size: clamp(250px, 40vw, 400px);
   font-weight: 700;
@@ -208,13 +209,16 @@ article {
    ======================================== */
 
 .separator {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-2);
+  border: none;
   margin: var(--space-2) 0;
   color: var(--border);
   font-size: var(--text-sm);
   letter-spacing: 0.5em;
+  text-align: center;
+}
+
+.separator::before {
+  content: '· · ·';
 }
 
 /* ========================================
@@ -302,12 +306,7 @@ article {
   display: inline-block;
   width: 4em;
   height: 1em;
-  background: linear-gradient(
-    90deg,
-    var(--border) 0%,
-    var(--surface) 50%,
-    var(--border) 100%
-  );
+  background: linear-gradient(90deg, var(--border) 0%, var(--surface) 50%, var(--border) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
   border-radius: 4px;
@@ -315,8 +314,13 @@ article {
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Counter fade-in */
@@ -325,8 +329,15 @@ article {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ========================================
@@ -374,25 +385,25 @@ article {
 }
 
 /* Dark mode: show sun */
-[data-theme="dark"] .theme-toggle .icon-moon {
+[data-theme='dark'] .theme-toggle .icon-moon {
   display: none;
 }
 
-[data-theme="dark"] .theme-toggle .icon-sun {
+[data-theme='dark'] .theme-toggle .icon-sun {
   display: block;
 }
 
 /* Light mode explicit: show moon */
-[data-theme="light"] .theme-toggle .icon-sun {
+[data-theme='light'] .theme-toggle .icon-sun {
   display: none;
 }
 
-[data-theme="light"] .theme-toggle .icon-moon {
+[data-theme='light'] .theme-toggle .icon-moon {
   display: block;
 }
 
 /* Theme overrides */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --bg: #0a0a0a;
   --fg: #e5e5e5;
   --muted: #888;
@@ -400,7 +411,7 @@ article {
   --surface: #151515;
 }
 
-[data-theme="light"] {
+[data-theme='light'] {
   --bg: #fafafa;
   --fg: #1a1a1a;
   --muted: #6b6b6b;
@@ -424,6 +435,59 @@ article {
   body::before {
     display: none;
   }
+}
+
+/* ========================================
+   404 Page
+   ======================================== */
+
+.page-404::before {
+  content: '0';
+}
+
+.page-404 main {
+  max-width: 320px;
+}
+
+.page-404 h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-2);
+}
+
+.page-404 .message {
+  color: var(--muted);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  margin-bottom: var(--space-1);
+}
+
+.page-404 .subtext {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-5);
+}
+
+.page-404 .back-link {
+  display: inline-block;
+  font-size: var(--text-sm);
+  color: var(--bg);
+  background: var(--fg);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: calc(var(--radius) / 2);
+  transition: opacity 0.2s ease;
+}
+
+.page-404 .back-link:hover {
+  opacity: 0.85;
+}
+
+.page-404 .back-link:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
 }
 
 /* ========================================
