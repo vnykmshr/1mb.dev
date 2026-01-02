@@ -210,6 +210,18 @@ article {
 }
 
 /* ========================================
+   Invitation
+   ======================================== */
+
+.invitation {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: var(--space-5);
+}
+
+/* ========================================
    Counter
    ======================================== */
 
