@@ -3,168 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
   <title>404 — 1mb</title>
+  <meta name="author" content="1mb">
   <meta name="robots" content="noindex">
   <meta name="color-scheme" content="dark light">
 
   <!-- Security -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'unsafe-inline'; font-src 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self';">
 
   <!-- Fonts (self-hosted) -->
   <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/space-grotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-  <style>
-    @font-face {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400 600;
-      font-display: swap;
-      src: url('/assets/fonts/inter-latin.woff2') format('woff2');
-    }
-
-    @font-face {
-      font-family: 'Space Grotesk';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      src: url('/assets/fonts/space-grotesk-700-latin.woff2') format('woff2');
-    }
-
-    :root {
-      --bg: #fafafa;
-      --fg: #1a1a1a;
-      --muted: #6b6b6b;
-      --border: #e0e0e0;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0a0a0a;
-        --fg: #e5e5e5;
-        --muted: #888;
-        --border: #2a2a2a;
-      }
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Watermark - shows "0" for 404 */
-    body::before {
-      content: '0';
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -45%);
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      font-size: clamp(250px, 40vw, 400px);
-      font-weight: 700;
-      color: var(--fg);
-      opacity: 0.04;
-      pointer-events: none;
-      z-index: 0;
-      line-height: 1;
-    }
-
-    main {
-      position: relative;
-      z-index: 1;
-      max-width: 320px;
-    }
-
-    h1 {
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 1rem;
-    }
-
-    .message {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 0.5rem;
-    }
-
-    .subtext {
-      color: var(--muted);
-      font-size: 0.875rem;
-      margin-bottom: 2.5rem;
-    }
-
-    a {
-      font-size: 0.875rem;
-      color: var(--bg);
-      background: var(--fg);
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      transition: opacity 0.2s ease;
-    }
-
-    a:hover {
-      opacity: 0.85;
-    }
-
-    a:focus-visible {
-      outline: 2px solid var(--fg);
-      outline-offset: 2px;
-    }
-
-    /* Theme overrides (synced with main site) */
-    [data-theme="dark"] {
-      --bg: #0a0a0a;
-      --fg: #e5e5e5;
-      --muted: #888;
-      --border: #2a2a2a;
-    }
-
-    [data-theme="light"] {
-      --bg: #fafafa;
-      --fg: #1a1a1a;
-      --muted: #6b6b6b;
-      --border: #e0e0e0;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      body::before {
-        display: none;
-      }
-      a {
-        transition: none;
-      }
-    }
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/style.css">
 
   <!-- Theme (load early to prevent flash) -->
   <script src="/assets/js/theme.js"></script>
 </head>
-<body>
+<body class="page-404">
   <main>
     <h1>404</h1>
     <p class="message">This page wandered off.</p>
     <p class="subtext">Even solo builders lose things sometimes.</p>
-    <a href="/">back to building</a>
+    <a href="/" class="back-link">back to building</a>
   </main>
 </body>
 </html>

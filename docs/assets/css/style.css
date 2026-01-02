@@ -208,13 +208,16 @@ article {
    ======================================== */
 
 .separator {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-2);
+  border: none;
   margin: var(--space-2) 0;
   color: var(--border);
   font-size: var(--text-sm);
   letter-spacing: 0.5em;
+  text-align: center;
+}
+
+.separator::before {
+  content: '· · ·';
 }
 
 /* ========================================
@@ -424,6 +427,59 @@ article {
   body::before {
     display: none;
   }
+}
+
+/* ========================================
+   404 Page
+   ======================================== */
+
+.page-404::before {
+  content: '0';
+}
+
+.page-404 main {
+  max-width: 320px;
+}
+
+.page-404 h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-2);
+}
+
+.page-404 .message {
+  color: var(--muted);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  margin-bottom: var(--space-1);
+}
+
+.page-404 .subtext {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-5);
+}
+
+.page-404 .back-link {
+  display: inline-block;
+  font-size: var(--text-sm);
+  color: var(--bg);
+  background: var(--fg);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: calc(var(--radius) / 2);
+  transition: opacity 0.2s ease;
+}
+
+.page-404 .back-link:hover {
+  opacity: 0.85;
+}
+
+.page-404 .back-link:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
 }
 
 /* ========================================
