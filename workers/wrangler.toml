@@ -1,23 +1,16 @@
 name = "1mb-counter"
 main = "counter.js"
-compatibility_date = "2024-01-01"
+compatibility_date = "2025-12-31"
+preview_urls = false
 
-# Account ID (optional - wrangler will prompt if not set)
-# account_id = ""
+[observability]
+enabled = true
 
-# Environment variables (secrets should be set via `wrangler secret put`)
-# These are placeholders - actual values are set in Cloudflare dashboard or via CLI
-[vars]
-# Non-sensitive config can go here
+[observability.logs]
+enabled = true
 
-# Secrets (set via `wrangler secret put UPSTASH_REDIS_REST_URL` etc.)
-# UPSTASH_REDIS_REST_URL = ""
-# UPSTASH_REDIS_REST_TOKEN = ""
+# Secrets (set via dashboard or `wrangler secret put`)
+# UPSTASH_REDIS_REST_URL
+# UPSTASH_REDIS_REST_TOKEN
 
-# Custom domain (if configured)
-# routes = [
-#   { pattern = "counter.1mb.dev", custom_domain = true }
-# ]
-
-# Current deployment uses workers.dev subdomain:
-# https://1mb-counter.vmx-builds.workers.dev
+# Production: https://1mb-counter.vmx-builds.workers.dev
