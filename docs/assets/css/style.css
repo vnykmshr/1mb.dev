@@ -195,6 +195,14 @@ article {
   line-height: 1.7;
 }
 
+.context {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--muted);
+  margin-top: var(--space-4);
+  line-height: 1.8;
+}
+
 /* ========================================
    Separator
    ======================================== */
@@ -203,7 +211,7 @@ article {
   display: flex;
   justify-content: center;
   gap: var(--space-2);
-  margin: var(--space-5) 0;
+  margin: var(--space-2) 0;
   color: var(--border);
   font-size: var(--text-sm);
   letter-spacing: 0.5em;
@@ -218,7 +226,7 @@ article {
   font-size: var(--text-sm);
   font-style: italic;
   color: var(--muted);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
 }
 
 /* ========================================
