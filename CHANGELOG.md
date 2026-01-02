@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - CI pipeline with ESLint, Prettier, HTML/CSS validation
 - humans.txt with project philosophy
 - Counter API `/health` endpoint with Redis connectivity check
+- Wrangler CLI setup for Counter API deployment
 
 ### Changed
 
