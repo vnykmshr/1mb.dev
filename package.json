@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "node scripts/build.js",
     "lint": "eslint docs/assets/js/*.js",
     "lint:fix": "eslint docs/assets/js/*.js --fix",
     "format": "prettier --check .",
@@ -12,7 +13,7 @@
     "validate:html": "html-validate docs/*.html",
     "validate:css": "stylelint docs/assets/css/*.css",
     "validate": "npm run lint && npm run format && npm run validate:html && npm run validate:css",
-    "ci": "npm run validate"
+    "ci": "npm run validate && npm run build"
   },
   "devDependencies": {
     "eslint": "^9.17.0",

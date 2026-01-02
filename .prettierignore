@@ -1,5 +1,6 @@
 node_modules/
 todos/
+scripts/
 docs/assets/fonts/
 docs/assets/images/
 *.woff2

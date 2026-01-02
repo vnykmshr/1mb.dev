@@ -3,7 +3,7 @@
  * Provides offline support with cache-first strategy for static assets.
  */
 
-const CACHE_NAME = '1mb-v4';
+const CACHE_NAME = '1mb-dev';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
